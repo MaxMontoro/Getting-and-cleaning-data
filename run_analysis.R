@@ -22,12 +22,14 @@ combinedData <- cbind(joinedSubjects, joinedLabels, joinedData)
 
 # 2. EXTRACT ONLY THE MEAN AND STD FOR EACH MEASUREMENT
 
-RowsWithMeanAndStd <- grep("mean\\()|std\\()", features[, 2]) # grep is used to find rows in the feature list that contain either "mean()" or "std()" keywords 
+RowsWithMeanAndStd <- grep("mean\\()|std\\()", features[, 2]) # grep is used to find rows 
+# in the feature list that contain either "mean()" or "std()" keywords 
 # (\\ is escape character)
 
 
 # extract only the rows from the big combined dataset that contain either mean or std values
-joinedData <- joinedData[,RowsWithMeanAndStd] # here we select all rows and those columns that contain mean or std
+joinedData <- joinedData[,RowsWithMeanAndStd] # here we select all rows and those columns 
+# that contain mean or std
 combinedData <- cbind(joinedSubjects, joinedLabels, joinedData) # here we combine all our cleaned data
 
 # 3. USE DESCRIPTIVE ACTIVITY NAMES
@@ -40,12 +42,17 @@ names(joinedLabels) <- "Activity" # assign name to the column
 # 4. Add labels 
 
 names(joinedSubjects) <- "subject"  # assign name to the column
-combinedData <- cbind(joinedSubjects, joinedLabels, joinedData) # again gather all our data with the new names
+# again gather all our data with the new names
+combinedData <- cbind(joinedSubjects, joinedLabels, joinedData) 
+
 write.table(combinedData, "combinedData.txt") # print to file the first dataset
 
-# 5. CREATE A SECOND, INDEPENDENT DATASET WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
+# 5. CREATE A SECOND, INDEPENDENT DATASET 
+# WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
 
-# the aggregate function comes handy! we calculate the mean by subject and by activity for each variable here
+# the aggregate function comes handy! 
+# we calculate the mean by subject and by activity for each variable here
+
 cleanedData <- aggregate(combinedData, by=list(SUBJECT =combinedData$subject, ACTIVITY = combinedData$Activity), mean)
 
 # remove unnecessary columns
