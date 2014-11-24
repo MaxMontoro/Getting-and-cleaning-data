@@ -47,7 +47,7 @@ features.txt
 Transformations
 
 - Merged test data with training data (data, labels and subject) using rbind
-- 
+
 - Combined all the data into one dataframe with cbind
 
 Functions used:
