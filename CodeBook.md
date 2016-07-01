@@ -28,7 +28,7 @@ activityNames - names of the activities
 
 cleanedData - tidy data containing the means of each variable for each subject and activity
 
-Data
+## Data
 
 X_train.txt
 
@@ -44,13 +44,13 @@ subject_train.txt
 
 features.txt
 
-Transformations
+## Transformations
 
 - Merged test data with training data (data, labels and subject) using rbind
 
 - Combined all the data into one dataframe with cbind
 
-Functions used:
+## Functions used:
 
 read.table - for reading from file
 
