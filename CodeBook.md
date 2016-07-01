@@ -1,4 +1,4 @@
-Variables in the script
+## Variables in the script
 
 trainingData - training dataset
 
